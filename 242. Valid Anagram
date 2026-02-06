@@ -1,0 +1,29 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        if (s.length() != t.length()) return false;
+        Map<Integer, Integer> m = new HashMap<>();
+        for(char i : s.toCharArray()){
+            int idx = i-'a';
+            if(m.containsKey(idx)){
+                m.put(idx, m.get(idx) + 1);
+            } else {
+                m.put(idx, 1);
+            }
+        }
+
+        for(char i : t.toCharArray()){
+            int idx = i-'a';
+            if(!m.containsKey(idx)){
+                return false;
+            }
+            
+            if(m.get(idx)==0){
+                return false;
+            }
+
+            m.put(idx, m.get(idx) - 1);
+        }
+
+        return true;
+    }
+}

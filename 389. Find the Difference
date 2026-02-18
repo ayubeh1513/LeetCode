@@ -1,28 +1,8 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        char[] sa = s.toCharArray();
-        char[] ta = t.toCharArray();
-
-        Map<Integer, Integer> m = new HashMap<>();
-
-        for(char i : sa){
-            if(m.containsKey(i-'a')){
-                m.put(i-'a', m.get(i-'a') + 1);
-            } else {
-                m.put(i-'a', 1);
-            }
-        }
-
-        for(char i : ta){
-            if(!m.containsKey(i-'a')) return i;
-            if(m.get(i-'a')==0) return i;
-            if(m.containsKey(i-'a')) m.put(i-'a', m.get(i-'a') - 1);
-        }
-
-        for(int i : m.keySet()){
-            if(m.get(i)>0) return (char)(i+'a');
-        } 
-
-        return 'a';
+        int sum=0;
+        for(char i : t.toCharArray()) sum+=i;
+        for(char i : s.toCharArray()) sum-=i;
+        return (char) sum;
     }
 }

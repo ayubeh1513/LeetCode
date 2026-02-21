@@ -1,0 +1,42 @@
+class Solution {
+    public boolean detectCapitalUse(String word) {
+        if(word.length()==1){
+            return true;
+        }
+
+        if(word.length()==2){
+            if((word.charAt(0)>=65 && word.charAt(0)<=90) && (word.charAt(1)>=97 && word.charAt(1)<=122)) return true;
+            else if((word.charAt(0)>=65 && word.charAt(0)<=90) && (word.charAt(1)>=65 && word.charAt(1)<=90)) return true;
+            else if((word.charAt(0)>=97 && word.charAt(0)<=122) && (word.charAt(1)>=97 && word.charAt(1)<=122)) return true;
+            else return false;
+        }
+
+        if((word.charAt(0)>=65 && word.charAt(0)<=90) && (word.charAt(1)>=65 && word.charAt(1)<=90)){
+            for(char i : word.toCharArray()){
+                if(!(i>=65 && i<=90)){
+                    return false;
+                }
+            }
+        }
+
+        if((word.charAt(0)>=97 && word.charAt(0)<=122) && (word.charAt(1)>=97 && word.charAt(1)<=122)){
+            for(char i : word.toCharArray()){
+                if(!(i>=97 && i<=122)){
+                    return false;
+                }
+            }
+        }
+
+        if((word.charAt(0)>=65 && word.charAt(0)<=90) && (word.charAt(1)>=97 && word.charAt(1)<=122)){
+            for(int i=2; i<word.length(); i++){
+                if(!(word.charAt(i)>=97 && word.charAt(i)<=122)){
+                    return false;
+                }
+            }
+        }
+
+        if((word.charAt(0)>=97 && word.charAt(0)<=122) && (word.charAt(1)>=65 && word.charAt(1)<=90)) return false;
+
+        return true;
+    }
+}

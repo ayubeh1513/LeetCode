@@ -1,0 +1,16 @@
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        Map<Integer, Integer> m = new HashMap<>();
+        for(int i=0; i<s.length(); i++){
+            if(m.containsKey(s.charAt(i)-'a')){
+                if(m.get(s.charAt(i)-'a')!=t.charAt(i)-'a'){
+                    return false;
+                }
+            } else{
+                if(m.containsValue(t.charAt(i)-'a')) return false;
+                m.put(s.charAt(i)-'a', t.charAt(i)-'a');
+            }
+        }
+        return true;
+    }
+}

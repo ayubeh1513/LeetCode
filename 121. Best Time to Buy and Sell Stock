@@ -1,0 +1,18 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+        int b = prices[0];
+        int c = 0;
+        int m = 0;
+
+        for(int i : prices){
+            if(i<b){
+                b=i;
+            } else {
+                c=i-b;
+                if(m<c) m=c;
+            }
+        }
+
+        return m;
+    }
+}

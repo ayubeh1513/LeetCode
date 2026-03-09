@@ -1,0 +1,28 @@
+class Solution {
+    public void setZeroes(int[][] m) {
+       int il = m.length;
+       int jl = m[0].length; 
+       int[][] mm = new int[il][jl];
+
+       for(int i=0; i<il; i++){
+           for(int j=0; j<jl; j++){
+               if(m[i][j]==0){
+                    for(int ii=0; ii<il; ii++){
+                        mm[ii][j]=-1;
+                    }
+                    for(int jj=0; jj<jl; jj++){
+                       mm[i][jj]=-1;
+                   }
+               }
+           }
+       }
+
+       for(int i=0; i<il; i++){
+            for(int j=0; j<jl; j++){
+                if(mm[i][j]==-1){
+                    m[i][j]=0;
+                }
+            }
+       }
+    }
+}

@@ -1,28 +1,50 @@
 class Solution {
     public void setZeroes(int[][] m) {
-       int il = m.length;
-       int jl = m[0].length; 
-       int[][] mm = new int[il][jl];
+        boolean d = false;
+        boolean s = false;
+        for(int i=0; i<m.length; i++){
+            if(m[i][0]==0) d=true;
+        }
 
-       for(int i=0; i<il; i++){
-           for(int j=0; j<jl; j++){
-               if(m[i][j]==0){
-                    for(int ii=0; ii<il; ii++){
-                        mm[ii][j]=-1;
-                    }
-                    for(int jj=0; jj<jl; jj++){
-                       mm[i][jj]=-1;
-                   }
-               }
-           }
-       }
+        for(int i=0; i<m[0].length; i++){
+            if(m[0][i]==0) s=true;
+        }
 
-       for(int i=0; i<il; i++){
-            for(int j=0; j<jl; j++){
-                if(mm[i][j]==-1){
+        for(int i=1; i<m.length; i++){
+            for(int j=1; j<m[0].length; j++){
+                if(m[i][j]==0){
+                    m[0][j]=0;
+                    m[i][0]=0;
+                }
+            }
+        }
+
+        for(int i=1; i<m.length; i++){
+            if(m[i][0]==0){
+                for(int j=0; j<m[0].length; j++){
                     m[i][j]=0;
                 }
             }
-       }
+        }
+
+        for(int i=1; i<m[0].length; i++){
+            if(m[0][i]==0){
+                for(int j=0; j<m.length; j++){
+                    m[j][i]=0;
+                }
+            }
+        }
+
+        if(d){
+            for(int i=0; i<m.length; i++){
+                m[i][0]=0;
+            }
+        }
+
+        if(s){
+            for(int i=0; i<m[0].length; i++){
+                m[0][i]=0;
+            }
+        }
     }
 }

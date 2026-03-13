@@ -1,0 +1,27 @@
+class Solution {
+    public List<List<Integer>> generate(int n) {
+        List<List<Integer>> a = new ArrayList<>();
+
+        if(n==0) return a;
+
+        List<Integer> b = new ArrayList<>();
+        b.add(1);
+        a.add(b);
+
+        if(n==1) return a;
+
+        for(int i=1; i<n; i++){
+            List<Integer> c = a.get(i-1);
+
+            List<Integer> d = new ArrayList<>();
+            d.add(1);
+            for(int j=0; j<i-1; j++){
+                d.add(c.get(j) + c.get(j+1));
+            }
+            d.add(1);
+
+            a.add(d);
+        }
+        return a;
+    }
+}

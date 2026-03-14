@@ -1,0 +1,42 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] m) {
+        List<Integer> a = new ArrayList<>();
+
+        int cb = 0;
+        int rb = 0;
+        int ce = m[0].length-1;
+        int re = m.length-1;
+
+        while(cb<=ce && rb<=re){
+            for(int i=cb; i<=ce; i++){
+                a.add(m[rb][i]);
+            }
+
+            rb++;
+
+            for(int i=rb; i<=re; i++){
+                a.add(m[i][ce]);
+            }
+
+            ce--;
+
+            if(rb<=re){
+                for(int i=ce; i>=cb; i--){
+                    a.add(m[re][i]);
+                }
+            }
+
+            re--;
+
+            if(cb<=ce){
+                for(int i=re; i>=rb; i--){
+                    a.add(m[i][cb]);
+                }
+            }
+
+            cb++;
+        }
+
+        return a;
+    }
+}

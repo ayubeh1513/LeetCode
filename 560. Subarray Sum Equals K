@@ -1,0 +1,23 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        Map<Integer, Integer> m = new HashMap<>();
+        int ps = 0;
+        int ct = 0;
+        m.put(0, 1);
+        for(int i=0; i<nums.length; i++){
+            ps += nums[i];
+            int psk = ps-k;
+
+            if(m.containsKey(psk)){
+                ct += m.get(psk);
+            }
+
+            if(m.containsKey(ps)){
+                m.put(ps, m.get(ps)+1);
+            } else{
+                m.put(ps, 1);
+            }
+        }
+        return ct;
+    }
+}

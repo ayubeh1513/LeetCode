@@ -1,0 +1,11 @@
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int k=0;
+        for(int i : nums){
+            nums[k]=i*i;
+            k++;
+        }
+        Arrays.sort(nums);
+        return nums;
+    }
+}

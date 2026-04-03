@@ -1,0 +1,21 @@
+class Solution {
+    public int findClosestNumber(int[] nums) {
+        int a=1000000, b=1;
+        for(int i : nums){
+            if(i<0){
+                i*=-1;
+                if(i!=a && i<a){
+                    a=i;
+                    b=-1;
+                }
+            } else{
+                if(i<=a){
+                    a=i;
+                    b=1;
+                }
+            }
+        }
+
+        return a*b;
+    }
+}

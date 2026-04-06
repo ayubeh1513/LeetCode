@@ -1,0 +1,21 @@
+class Solution {
+    public boolean canConstruct(String r, String ma) {
+        Map<Character, Integer> m = new HashMap<>();
+        for(char i : ma.toCharArray()){
+            if(m.containsKey(i)){
+                m.put(i, m.get(i)+1);
+            } else {
+                m.put(i, 1);
+            }
+        }
+
+        for(char i : r.toCharArray()){
+            if(m.containsKey(i)){
+                if(m.get(i)<1) return false;
+                else m.put(i, m.get(i)-1);
+            } else return false;
+        }
+
+        return true;
+    }
+}

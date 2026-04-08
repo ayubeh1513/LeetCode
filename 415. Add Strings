@@ -1,0 +1,19 @@
+import java.math.BigInteger;
+class Solution {
+    public String addStrings(String n1, String n2) {
+        BigInteger a = new BigInteger("0");
+        BigInteger b = new BigInteger("0");
+
+        for(char i : n1.toCharArray()){
+            long d = i - '0';
+            a=a.multiply(BigInteger.valueOf(10)).add(BigInteger.valueOf(d));
+        }
+
+        for(char i : n2.toCharArray()){
+            long d = i - '0';
+            b=b.multiply(BigInteger.valueOf(10)).add(BigInteger.valueOf(d));
+        }
+
+        return a.add(b).toString();
+    }
+}

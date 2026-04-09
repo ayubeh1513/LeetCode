@@ -1,0 +1,25 @@
+class Solution {
+    public boolean checkRecord(String s) {
+        Map<Character, Integer> m = new HashMap<>();
+        int n=0;
+        for(char i : s.toCharArray()){
+            if(i=='L'){
+                n++;
+                if(n==3){
+                    return false;
+                }
+            } else{
+                n=0;
+            }
+
+            if(m.containsKey(i)){
+                m.put(i, m.get(i) + 1);
+            } else{
+                m.put(i, 1);
+            }
+        }
+
+        if(m.containsKey('A') && m.get('A')>=2) return false;
+        return true;
+    }
+}

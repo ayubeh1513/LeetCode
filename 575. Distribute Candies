@@ -1,0 +1,15 @@
+class Solution {
+    public int distributeCandies(int[] c) {
+        Arrays.sort(c);
+        int n=0;
+        int m=-1;
+        for(int i : c){
+            if(m!=i){
+                m=i;
+                n++;
+            }
+        }
+
+        return Math.min(n, c.length/2);
+    }
+}

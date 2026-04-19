@@ -1,15 +1,11 @@
 class Solution {
     public int distributeCandies(int[] c) {
-        Arrays.sort(c);
-        int n=0;
-        int m=-1;
+        Set<Integer> a = new HashSet<>();
         for(int i : c){
-            if(m!=i){
-                m=i;
-                n++;
-            }
+            a.add(i);
         }
 
-        return Math.min(n, c.length/2);
+        int u = a.size();
+        return Math.min(u, c.length/2);
     }
 }

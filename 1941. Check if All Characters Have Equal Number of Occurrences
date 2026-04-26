@@ -1,0 +1,25 @@
+class Solution {
+    public boolean areOccurrencesEqual(String s) {
+        HashMap<Character, Long> m = new HashMap<>();
+        
+        for(char i : s.toCharArray()){
+            if(m.containsKey(i)){
+                m.put(i, m.get(i) + 1);
+            } else {
+                m.put(i, (long) 1);
+            }
+        }
+
+        long first = -1;
+
+        for(long val : m.values()){
+            if(first == -1){
+                first = val;
+            } else if(first != val){
+                return false;
+            }
+        }
+
+        return true;
+    }
+}

@@ -1,0 +1,14 @@
+class Solution {
+    public boolean checkStraightLine(int[][] a) {
+        int x = a[0][0], y = a[0][1];
+        int dx = a[1][0] - x;
+        int dy = a[1][1] - y;
+
+        for (int i = 2; i < a.length; i++) {
+            if (dx * (a[i][1] - y) != dy * (a[i][0] - x)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}

@@ -4,7 +4,10 @@ class Solution {
         for(int i : arr1){
             int n=0;
             for(int j : arr2){
-                if(Math.abs(i-j)<=d) n=1;
+                if(Math.abs(i-j)<=d){
+                    n=1;
+                    break;
+                }
             }
             if(n==0) a++;
         }

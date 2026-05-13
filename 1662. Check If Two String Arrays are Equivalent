@@ -10,11 +10,6 @@ class Solution {
             sb2.append(i);
         }
 
-        if(sb1.length()!=sb2.length()) return false;
-        for(int i=0; i<sb1.length(); i++){
-            if(sb1.charAt(i)!=sb2.charAt(i)) return false;
-        }
-
-        return true;
+        return sb1.toString().equals(sb2.toString());
     }
 }

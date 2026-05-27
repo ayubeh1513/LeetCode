@@ -1,0 +1,17 @@
+class Solution {
+    public List<String> stringMatching(String[] words) {
+        List<String> a = new ArrayList<>();
+        for(String i : words){
+            for(String j : words){
+                if(!i.equals(j) && j.contains(i)){
+                    if(!a.contains(i)){
+                        a.add(i);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return a;
+    }
+}

@@ -1,0 +1,22 @@
+class Solution {
+    public int maxPower(String s) {
+        if(s.length()==1) return 1;
+        int a = 1;
+        char b = s.charAt(0);
+        int m = 0;
+        for(int j=1; j<s.length(); j++){
+            char i = s.charAt(j);
+            if(i==b){
+                a++;
+                b=i;
+            } else {
+                if(m<a){
+                    m=a;
+                }
+                a=1;
+                b=i;
+            }
+        }
+        return Math.max(m,a);
+    }
+}

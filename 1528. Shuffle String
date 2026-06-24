@@ -1,0 +1,15 @@
+class Solution {
+    public String restoreString(String s, int[] in) {
+        StringBuilder sb = new StringBuilder();
+        Map<Integer, Character> m = new HashMap<>();
+        for(int i=0; i<s.length(); i++){
+            m.put(in[i], s.charAt(i));
+        }
+
+        for(int i=0; i<s.length(); i++){
+            sb.append(m.get(i));
+        }
+
+        return sb.toString();
+    }
+}
